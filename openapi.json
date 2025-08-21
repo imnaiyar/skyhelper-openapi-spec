@@ -303,7 +303,7 @@
         ],
         "summary": "Get current Traveling Spirit data",
         "tags": [
-          "Game Data Updates"
+          "Event Management"
         ]
       },
       "patch": {
@@ -386,7 +386,7 @@
         ],
         "summary": "Update Traveling Spirit data",
         "tags": [
-          "Game Data Updates"
+          "Event Management"
         ]
       }
     },
@@ -437,7 +437,7 @@
         ],
         "summary": "Get current event data",
         "tags": [
-          "Game Data Updates"
+          "Event Management"
         ]
       },
       "patch": {
@@ -519,7 +519,7 @@
         ],
         "summary": "Update event data",
         "tags": [
-          "Game Data Updates"
+          "Event Management"
         ]
       }
     },
@@ -694,7 +694,7 @@
         ],
         "summary": "Get daily quests data",
         "tags": [
-          "Game Data Updates"
+          "Event Management"
         ]
       },
       "patch": {
@@ -882,7 +882,7 @@
         ],
         "summary": "Update daily quests data",
         "tags": [
-          "Game Data Updates"
+          "Event Management"
         ]
       }
     },
@@ -3995,8 +3995,8 @@
       "description": "User settings and profile management"
     },
     {
-      "name": "Game Data Updates",
-      "description": "Skygames data management"
+      "name": "Event Management",
+      "description": "In-game events management"
     }
   ],
   "servers": [
