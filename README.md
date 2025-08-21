@@ -1,0 +1,1 @@
+# skyhelper-openapi-spec
