@@ -32,44 +32,50 @@
         "parameters": [
           {
             "name": "locale",
-            "required": false,
+            "required": true,
             "in": "query",
-            "description": "Language locale",
             "schema": {
-              "example": "en-US",
-              "type": "string"
+              "$schema": "https://json-schema.org/draft/2020-12/schema",
+              "type": "string",
+              "enum": [
+                "en-US",
+                "hi",
+                "ru",
+                "ja",
+                "es-ES"
+              ]
             }
           },
           {
             "name": "user",
-            "required": false,
+            "required": true,
             "in": "query",
-            "description": "User ID for personalized content",
             "schema": {
+              "$schema": "https://json-schema.org/draft/2020-12/schema",
               "type": "string"
             }
           },
           {
             "name": "noBtn",
-            "required": false,
+            "required": true,
             "in": "query",
-            "description": "Exclude buttons from embed",
             "schema": {
+              "$schema": "https://json-schema.org/draft/2020-12/schema",
+              "type": "string",
               "enum": [
                 "true",
                 "false"
-              ],
-              "type": "string"
+              ]
             }
           },
           {
             "name": "date",
-            "required": false,
+            "required": true,
             "in": "query",
-            "description": "Date in YYYY-MM-DD format",
             "schema": {
-              "example": "2024-01-15",
-              "type": "string"
+              "$schema": "https://json-schema.org/draft/2020-12/schema",
+              "type": "string",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
             }
           }
         ],
@@ -112,12 +118,18 @@
         "parameters": [
           {
             "name": "locale",
-            "required": false,
+            "required": true,
             "in": "query",
-            "description": "Language locale",
             "schema": {
-              "example": "en-US",
-              "type": "string"
+              "$schema": "https://json-schema.org/draft/2020-12/schema",
+              "type": "string",
+              "enum": [
+                "en-US",
+                "hi",
+                "ru",
+                "ja",
+                "es-ES"
+              ]
             }
           }
         ],
@@ -164,29 +176,33 @@
             "content": {
               "application/json": {
                 "schema": {
+                  "$schema": "https://json-schema.org/draft/2020-12/schema",
                   "type": "object",
                   "properties": {
                     "totalServers": {
-                      "type": "number",
-                      "example": 150
+                      "type": "number"
                     },
                     "totalMembers": {
-                      "type": "number",
-                      "example": 50000
+                      "type": "number"
                     },
                     "ping": {
-                      "type": "number",
-                      "example": 45
+                      "type": "number"
                     },
                     "commands": {
-                      "type": "number",
-                      "example": 25
+                      "type": "number"
                     },
                     "totalUserInstalls": {
-                      "type": "number",
-                      "example": 1000
+                      "type": "number"
                     }
-                  }
+                  },
+                  "required": [
+                    "totalServers",
+                    "totalMembers",
+                    "ping",
+                    "commands",
+                    "totalUserInstalls"
+                  ],
+                  "additionalProperties": false
                 }
               }
             }
@@ -209,23 +225,26 @@
             "content": {
               "application/json": {
                 "schema": {
+                  "$schema": "https://json-schema.org/draft/2020-12/schema",
                   "type": "array",
                   "items": {
                     "type": "object",
                     "properties": {
                       "name": {
-                        "type": "string",
-                        "example": "Abyss Spirit"
+                        "type": "string"
                       },
                       "value": {
-                        "type": "string",
-                        "example": "abyss-spirit"
+                        "type": "string"
                       },
                       "icon": {
-                        "type": "string",
-                        "example": "https://cdn.discordapp.com/emojis/1206501060303130664.png"
+                        "type": "string"
                       }
-                    }
+                    },
+                    "required": [
+                      "name",
+                      "value"
+                    ],
+                    "additionalProperties": false
                   }
                 }
               }
@@ -249,21 +268,26 @@
             "content": {
               "application/json": {
                 "schema": {
+                  "$schema": "https://json-schema.org/draft/2020-12/schema",
                   "type": "object",
                   "properties": {
                     "spirit": {
-                      "type": "string",
-                      "example": "abyss-spirit"
+                      "type": "string"
                     },
                     "visitDate": {
                       "type": "string",
-                      "example": "15-01-2024"
+                      "pattern": "^\\d{2}-\\d{2}-\\d{4}$"
                     },
                     "index": {
-                      "type": "string",
-                      "example": "1"
+                      "type": "string"
                     }
-                  }
+                  },
+                  "required": [
+                    "spirit",
+                    "visitDate",
+                    "index"
+                  ],
+                  "additionalProperties": false
                 }
               }
             }
@@ -291,21 +315,26 @@
           "content": {
             "application/json": {
               "schema": {
+                "$schema": "https://json-schema.org/draft/2020-12/schema",
                 "type": "object",
                 "properties": {
                   "spirit": {
-                    "type": "string",
-                    "example": "abyss-spirit"
+                    "type": "string"
                   },
                   "visitDate": {
                     "type": "string",
-                    "example": "15-01-2024"
+                    "pattern": "^\\d{2}-\\d{2}-\\d{4}$"
                   },
                   "index": {
-                    "type": "string",
-                    "example": "1"
+                    "type": "string"
                   }
-                }
+                },
+                "required": [
+                  "spirit",
+                  "visitDate",
+                  "index"
+                ],
+                "additionalProperties": false
               }
             }
           }
@@ -316,21 +345,26 @@
             "content": {
               "application/json": {
                 "schema": {
+                  "$schema": "https://json-schema.org/draft/2020-12/schema",
                   "type": "object",
                   "properties": {
                     "spirit": {
-                      "type": "string",
-                      "example": "abyss-spirit"
+                      "type": "string"
                     },
                     "visitDate": {
                       "type": "string",
-                      "example": "15-01-2024"
+                      "pattern": "^\\d{2}-\\d{2}-\\d{4}$"
                     },
                     "index": {
-                      "type": "string",
-                      "example": "1"
+                      "type": "string"
                     }
-                  }
+                  },
+                  "required": [
+                    "spirit",
+                    "visitDate",
+                    "index"
+                  ],
+                  "additionalProperties": false
                 }
               }
             }
@@ -367,21 +401,27 @@
             "content": {
               "application/json": {
                 "schema": {
+                  "$schema": "https://json-schema.org/draft/2020-12/schema",
                   "type": "object",
                   "properties": {
                     "name": {
-                      "type": "string",
-                      "example": "Days of Bloom"
+                      "type": "string"
                     },
                     "startDate": {
                       "type": "string",
-                      "example": "15-01-2024"
+                      "pattern": "^\\d{2}-\\d{2}-\\d{4}$"
                     },
                     "endDate": {
                       "type": "string",
-                      "example": "29-01-2024"
+                      "pattern": "^\\d{2}-\\d{2}-\\d{4}$"
                     }
-                  }
+                  },
+                  "required": [
+                    "name",
+                    "startDate",
+                    "endDate"
+                  ],
+                  "additionalProperties": false
                 }
               }
             }
@@ -409,21 +449,27 @@
           "content": {
             "application/json": {
               "schema": {
+                "$schema": "https://json-schema.org/draft/2020-12/schema",
                 "type": "object",
                 "properties": {
                   "name": {
-                    "type": "string",
-                    "example": "Days of Bloom"
+                    "type": "string"
                   },
                   "startDate": {
                     "type": "string",
-                    "example": "15-01-2024"
+                    "pattern": "^\\d{2}-\\d{2}-\\d{4}$"
                   },
                   "endDate": {
                     "type": "string",
-                    "example": "29-01-2024"
+                    "pattern": "^\\d{2}-\\d{2}-\\d{4}$"
                   }
-                }
+                },
+                "required": [
+                  "name",
+                  "startDate",
+                  "endDate"
+                ],
+                "additionalProperties": false
               }
             }
           }
@@ -434,21 +480,27 @@
             "content": {
               "application/json": {
                 "schema": {
+                  "$schema": "https://json-schema.org/draft/2020-12/schema",
                   "type": "object",
                   "properties": {
                     "name": {
-                      "type": "string",
-                      "example": "Days of Bloom"
+                      "type": "string"
                     },
                     "startDate": {
                       "type": "string",
-                      "example": "15-01-2024"
+                      "pattern": "^\\d{2}-\\d{2}-\\d{4}$"
                     },
                     "endDate": {
                       "type": "string",
-                      "example": "29-01-2024"
+                      "pattern": "^\\d{2}-\\d{2}-\\d{4}$"
                     }
-                  }
+                  },
+                  "required": [
+                    "name",
+                    "startDate",
+                    "endDate"
+                  ],
+                  "additionalProperties": false
                 }
               }
             }
@@ -482,8 +534,151 @@
             "content": {
               "application/json": {
                 "schema": {
+                  "$schema": "https://json-schema.org/draft/2020-12/schema",
                   "type": "object",
-                  "description": "Daily quests schema object"
+                  "properties": {
+                    "quests": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "title": {
+                            "type": "string"
+                          },
+                          "date": {
+                            "type": "string"
+                          },
+                          "description": {
+                            "type": "string"
+                          },
+                          "images": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "url": {
+                                  "type": "string"
+                                },
+                                "by": {
+                                  "type": "string"
+                                },
+                                "source": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "url",
+                                "by"
+                              ],
+                              "additionalProperties": false
+                            }
+                          }
+                        },
+                        "required": [
+                          "title",
+                          "date",
+                          "images"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "last_updated": {
+                      "type": "string"
+                    },
+                    "last_message": {
+                      "type": "string"
+                    },
+                    "rotating_candles": {
+                      "type": "object",
+                      "properties": {
+                        "title": {
+                          "type": "string"
+                        },
+                        "date": {
+                          "type": "string"
+                        },
+                        "description": {
+                          "type": "string"
+                        },
+                        "images": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "url": {
+                                "type": "string"
+                              },
+                              "by": {
+                                "type": "string"
+                              },
+                              "source": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "url",
+                              "by"
+                            ],
+                            "additionalProperties": false
+                          }
+                        }
+                      },
+                      "required": [
+                        "title",
+                        "date",
+                        "images"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "seasonal_candles": {
+                      "type": "object",
+                      "properties": {
+                        "title": {
+                          "type": "string"
+                        },
+                        "date": {
+                          "type": "string"
+                        },
+                        "description": {
+                          "type": "string"
+                        },
+                        "images": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "url": {
+                                "type": "string"
+                              },
+                              "by": {
+                                "type": "string"
+                              },
+                              "source": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "url",
+                              "by"
+                            ],
+                            "additionalProperties": false
+                          }
+                        }
+                      },
+                      "required": [
+                        "title",
+                        "date",
+                        "images"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "quests",
+                    "last_updated",
+                    "rotating_candles"
+                  ],
+                  "additionalProperties": false
                 }
               }
             }
@@ -512,6 +707,7 @@
           "content": {
             "application/json": {
               "schema": {
+                "$schema": "https://json-schema.org/draft/2020-12/schema",
                 "type": "object",
                 "properties": {
                   "quests": {
@@ -542,10 +738,21 @@
                               "source": {
                                 "type": "string"
                               }
-                            }
+                            },
+                            "required": [
+                              "url",
+                              "by"
+                            ],
+                            "additionalProperties": false
                           }
                         }
-                      }
+                      },
+                      "required": [
+                        "title",
+                        "date",
+                        "images"
+                      ],
+                      "additionalProperties": false
                     }
                   },
                   "last_updated": {
@@ -555,12 +762,96 @@
                     "type": "string"
                   },
                   "rotating_candles": {
-                    "type": "object"
+                    "type": "object",
+                    "properties": {
+                      "title": {
+                        "type": "string"
+                      },
+                      "date": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      },
+                      "images": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "url": {
+                              "type": "string"
+                            },
+                            "by": {
+                              "type": "string"
+                            },
+                            "source": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "url",
+                            "by"
+                          ],
+                          "additionalProperties": false
+                        }
+                      }
+                    },
+                    "required": [
+                      "title",
+                      "date",
+                      "images"
+                    ],
+                    "additionalProperties": false
                   },
                   "seasonal_candles": {
-                    "type": "object"
+                    "type": "object",
+                    "properties": {
+                      "title": {
+                        "type": "string"
+                      },
+                      "date": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      },
+                      "images": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "url": {
+                              "type": "string"
+                            },
+                            "by": {
+                              "type": "string"
+                            },
+                            "source": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "url",
+                            "by"
+                          ],
+                          "additionalProperties": false
+                        }
+                      }
+                    },
+                    "required": [
+                      "title",
+                      "date",
+                      "images"
+                    ],
+                    "additionalProperties": false
                   }
-                }
+                },
+                "required": [
+                  "quests",
+                  "last_updated",
+                  "rotating_candles"
+                ],
+                "additionalProperties": false
               }
             }
           }
@@ -616,13 +907,21 @@
             "content": {
               "application/json": {
                 "schema": {
+                  "$schema": "https://json-schema.org/draft/2020-12/schema",
                   "type": "object",
                   "properties": {
                     "language": {
                       "type": "string",
-                      "example": "en-US"
+                      "enum": [
+                        "en-US",
+                        "hi",
+                        "ru",
+                        "ja",
+                        "es-ES"
+                      ]
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 }
               }
             }
@@ -660,13 +959,21 @@
           "content": {
             "application/json": {
               "schema": {
+                "$schema": "https://json-schema.org/draft/2020-12/schema",
                 "type": "object",
                 "properties": {
                   "language": {
                     "type": "string",
-                    "example": "en-US"
+                    "enum": [
+                      "en-US",
+                      "hi",
+                      "ru",
+                      "ja",
+                      "es-ES"
+                    ]
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -677,13 +984,21 @@
             "content": {
               "application/json": {
                 "schema": {
+                  "$schema": "https://json-schema.org/draft/2020-12/schema",
                   "type": "object",
                   "properties": {
                     "language": {
                       "type": "string",
-                      "example": "en-US"
+                      "enum": [
+                        "en-US",
+                        "hi",
+                        "ru",
+                        "ja",
+                        "es-ES"
+                      ]
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 }
               }
             }
@@ -727,11 +1042,11 @@
           "content": {
             "application/json": {
               "schema": {
+                "$schema": "https://json-schema.org/draft/2020-12/schema",
                 "type": "object",
                 "properties": {
                   "username": {
-                    "type": "string",
-                    "description": "Platform username"
+                    "type": "string"
                   },
                   "metadata": {
                     "type": "object",
@@ -739,28 +1054,25 @@
                       "wings": {
                         "type": "number",
                         "minimum": 1,
-                        "maximum": 240,
-                        "description": "Number of wings"
+                        "maximum": 240
                       },
                       "since": {
-                        "type": "string",
-                        "description": "Date since playing"
+                        "type": "string"
                       },
                       "eden": {
-                        "type": "boolean",
-                        "description": "Has completed Eden"
+                        "type": "boolean"
                       },
                       "cr": {
-                        "type": "boolean",
-                        "description": "Completed candle runs"
+                        "type": "boolean"
                       },
                       "hangout": {
-                        "type": "boolean",
-                        "description": "Available for hangouts"
+                        "type": "boolean"
                       }
-                    }
+                    },
+                    "additionalProperties": false
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -771,15 +1083,37 @@
             "content": {
               "application/json": {
                 "schema": {
+                  "$schema": "https://json-schema.org/draft/2020-12/schema",
                   "type": "object",
                   "properties": {
                     "username": {
                       "type": "string"
                     },
                     "metadata": {
-                      "type": "object"
+                      "type": "object",
+                      "properties": {
+                        "wings": {
+                          "type": "number",
+                          "minimum": 1,
+                          "maximum": 240
+                        },
+                        "since": {
+                          "type": "string"
+                        },
+                        "eden": {
+                          "type": "boolean"
+                        },
+                        "cr": {
+                          "type": "boolean"
+                        },
+                        "hangout": {
+                          "type": "boolean"
+                        }
+                      },
+                      "additionalProperties": false
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 }
               }
             }
@@ -824,6 +1158,7 @@
             "content": {
               "application/json": {
                 "schema": {
+                  "$schema": "https://json-schema.org/draft/2020-12/schema",
                   "type": "object",
                   "properties": {
                     "username": {
@@ -833,7 +1168,9 @@
                       "type": "object",
                       "properties": {
                         "wings": {
-                          "type": "number"
+                          "type": "number",
+                          "minimum": 1,
+                          "maximum": 240
                         },
                         "since": {
                           "type": "string"
@@ -847,9 +1184,11 @@
                         "hangout": {
                           "type": "boolean"
                         }
-                      }
+                      },
+                      "additionalProperties": false
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 }
               }
             }
@@ -880,7 +1219,9 @@
             "in": "path",
             "description": "Discord guild ID",
             "schema": {
-              "example": "123456789012345678"
+              "$schema": "https://json-schema.org/draft/2020-12/schema",
+              "type": "string",
+              "pattern": "^\\d{17,19}$"
             }
           }
         ],
@@ -890,42 +1231,56 @@
             "content": {
               "application/json": {
                 "schema": {
+                  "$schema": "https://json-schema.org/draft/2020-12/schema",
                   "type": "object",
                   "properties": {
                     "id": {
-                      "type": "string",
-                      "example": "123456789012345678"
+                      "type": "string"
                     },
                     "name": {
-                      "type": "string",
-                      "example": "Sky Helper Community"
+                      "type": "string"
                     },
                     "icon": {
-                      "type": "string",
-                      "nullable": true
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
                     },
                     "prefix": {
-                      "type": "string",
-                      "example": "!"
-                    },
-                    "language": {
-                      "type": "string",
-                      "example": "en-US"
+                      "type": "string"
                     },
                     "announcement_channel": {
                       "type": "string"
                     },
                     "beta": {
-                      "type": "boolean",
-                      "example": false
+                      "type": "boolean"
+                    },
+                    "language": {
+                      "type": "string",
+                      "enum": [
+                        "en-US",
+                        "hi",
+                        "ru",
+                        "ja",
+                        "es-ES"
+                      ]
                     },
                     "enabledFeatures": {
                       "type": "array",
                       "items": {
-                        "type": "string"
+                        "type": "string",
+                        "enum": [
+                          "reminders",
+                          "live-updates"
+                        ]
                       }
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 }
               }
             }
@@ -954,7 +1309,9 @@
             "in": "path",
             "description": "Discord guild ID",
             "schema": {
-              "example": "123456789012345678"
+              "$schema": "https://json-schema.org/draft/2020-12/schema",
+              "type": "string",
+              "pattern": "^\\d{17,19}$"
             }
           }
         ],
@@ -963,24 +1320,56 @@
           "content": {
             "application/json": {
               "schema": {
+                "$schema": "https://json-schema.org/draft/2020-12/schema",
                 "type": "object",
                 "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "icon": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
                   "prefix": {
-                    "type": "string",
-                    "example": "!"
+                    "type": "string"
                   },
                   "announcement_channel": {
                     "type": "string"
                   },
                   "beta": {
-                    "type": "boolean",
-                    "example": false
+                    "type": "boolean"
                   },
                   "language": {
                     "type": "string",
-                    "example": "en-US"
+                    "enum": [
+                      "en-US",
+                      "hi",
+                      "ru",
+                      "ja",
+                      "es-ES"
+                    ]
+                  },
+                  "enabledFeatures": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "reminders",
+                        "live-updates"
+                      ]
+                    }
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
           }
@@ -991,21 +1380,56 @@
             "content": {
               "application/json": {
                 "schema": {
+                  "$schema": "https://json-schema.org/draft/2020-12/schema",
                   "type": "object",
                   "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "icon": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
                     "prefix": {
+                      "type": "string"
+                    },
+                    "announcement_channel": {
                       "type": "string"
                     },
                     "beta": {
                       "type": "boolean"
                     },
                     "language": {
-                      "type": "string"
+                      "type": "string",
+                      "enum": [
+                        "en-US",
+                        "hi",
+                        "ru",
+                        "ja",
+                        "es-ES"
+                      ]
                     },
-                    "announcement_channel": {
-                      "type": "string"
+                    "enabledFeatures": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "reminders",
+                          "live-updates"
+                        ]
+                      }
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 }
               }
             }
@@ -1052,7 +1476,9 @@
             "in": "path",
             "description": "Discord guild ID",
             "schema": {
-              "example": "123456789012345678"
+              "$schema": "https://json-schema.org/draft/2020-12/schema",
+              "type": "string",
+              "pattern": "^\\d{17,19}$"
             }
           }
         ],
@@ -1064,10 +1490,542 @@
                 "schema": {
                   "anyOf": [
                     {
-                      "$ref": "#/components/schemas/LiveUpdatesDto"
+                      "$schema": "https://json-schema.org/draft/2020-12/schema",
+                      "type": "object",
+                      "properties": {
+                        "shards": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "times": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        }
+                      },
+                      "required": [
+                        "shards",
+                        "times"
+                      ],
+                      "additionalProperties": false
                     },
                     {
-                      "$ref": "#/components/schemas/ReminderFeatureDto"
+                      "$schema": "https://json-schema.org/draft/2020-12/schema",
+                      "type": "object",
+                      "properties": {
+                        "eden": {
+                          "type": "object",
+                          "properties": {
+                            "active": {
+                              "type": "boolean"
+                            },
+                            "channelId": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "role": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "offset": {
+                              "anyOf": [
+                                {
+                                  "type": "number",
+                                  "minimum": 1,
+                                  "maximum": 15
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "active",
+                            "channelId",
+                            "role",
+                            "offset"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "dailies": {
+                          "type": "object",
+                          "properties": {
+                            "active": {
+                              "type": "boolean"
+                            },
+                            "channelId": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "role": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "offset": {
+                              "anyOf": [
+                                {
+                                  "type": "number",
+                                  "minimum": 1,
+                                  "maximum": 15
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "active",
+                            "channelId",
+                            "role",
+                            "offset"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "grandma": {
+                          "type": "object",
+                          "properties": {
+                            "active": {
+                              "type": "boolean"
+                            },
+                            "channelId": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "role": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "offset": {
+                              "anyOf": [
+                                {
+                                  "type": "number",
+                                  "minimum": 1,
+                                  "maximum": 15
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "active",
+                            "channelId",
+                            "role",
+                            "offset"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "turtle": {
+                          "type": "object",
+                          "properties": {
+                            "active": {
+                              "type": "boolean"
+                            },
+                            "channelId": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "role": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "offset": {
+                              "anyOf": [
+                                {
+                                  "type": "number",
+                                  "minimum": 1,
+                                  "maximum": 15
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "active",
+                            "channelId",
+                            "role",
+                            "offset"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "geyser": {
+                          "type": "object",
+                          "properties": {
+                            "active": {
+                              "type": "boolean"
+                            },
+                            "channelId": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "role": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "offset": {
+                              "anyOf": [
+                                {
+                                  "type": "number",
+                                  "minimum": 1,
+                                  "maximum": 15
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "active",
+                            "channelId",
+                            "role",
+                            "offset"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "reset": {
+                          "type": "object",
+                          "properties": {
+                            "active": {
+                              "type": "boolean"
+                            },
+                            "channelId": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "role": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "offset": {
+                              "anyOf": [
+                                {
+                                  "type": "number",
+                                  "minimum": 1,
+                                  "maximum": 15
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "active",
+                            "channelId",
+                            "role",
+                            "offset"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "aurora": {
+                          "type": "object",
+                          "properties": {
+                            "active": {
+                              "type": "boolean"
+                            },
+                            "channelId": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "role": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "offset": {
+                              "anyOf": [
+                                {
+                                  "type": "number",
+                                  "minimum": 1,
+                                  "maximum": 15
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "active",
+                            "channelId",
+                            "role",
+                            "offset"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "ts": {
+                          "type": "object",
+                          "properties": {
+                            "active": {
+                              "type": "boolean"
+                            },
+                            "channelId": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "role": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "offset": {
+                              "anyOf": [
+                                {
+                                  "type": "number",
+                                  "minimum": 1,
+                                  "maximum": 15
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "active",
+                            "channelId",
+                            "role",
+                            "offset"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "shards-eruption": {
+                          "type": "object",
+                          "properties": {
+                            "active": {
+                              "type": "boolean"
+                            },
+                            "channelId": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "role": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "offset": {
+                              "anyOf": [
+                                {
+                                  "type": "number",
+                                  "minimum": 1,
+                                  "maximum": 15
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "shard_type": {
+                              "anyOf": [
+                                {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "string",
+                                    "enum": [
+                                      "red",
+                                      "black"
+                                    ]
+                                  }
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "active",
+                            "channelId",
+                            "role",
+                            "offset",
+                            "shard_type"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "fireworks-festival": {
+                          "type": "object",
+                          "properties": {
+                            "active": {
+                              "type": "boolean"
+                            },
+                            "channelId": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "role": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "offset": {
+                              "anyOf": [
+                                {
+                                  "type": "number",
+                                  "minimum": 1,
+                                  "maximum": 15
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "active",
+                            "channelId",
+                            "role",
+                            "offset"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "required": [
+                        "eden",
+                        "dailies",
+                        "grandma",
+                        "turtle",
+                        "geyser",
+                        "reset",
+                        "aurora",
+                        "ts",
+                        "shards-eruption",
+                        "fireworks-festival"
+                      ],
+                      "additionalProperties": false
                     }
                   ]
                 }
@@ -1111,7 +2069,9 @@
             "in": "path",
             "description": "Discord guild ID",
             "schema": {
-              "example": "123456789012345678"
+              "$schema": "https://json-schema.org/draft/2020-12/schema",
+              "type": "string",
+              "pattern": "^\\d{17,19}$"
             }
           }
         ],
@@ -1123,10 +2083,542 @@
                 "schema": {
                   "anyOf": [
                     {
-                      "$ref": "#/components/schemas/LiveUpdatesDto"
+                      "$schema": "https://json-schema.org/draft/2020-12/schema",
+                      "type": "object",
+                      "properties": {
+                        "shards": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "times": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        }
+                      },
+                      "required": [
+                        "shards",
+                        "times"
+                      ],
+                      "additionalProperties": false
                     },
                     {
-                      "$ref": "#/components/schemas/ReminderFeatureDto"
+                      "$schema": "https://json-schema.org/draft/2020-12/schema",
+                      "type": "object",
+                      "properties": {
+                        "eden": {
+                          "type": "object",
+                          "properties": {
+                            "active": {
+                              "type": "boolean"
+                            },
+                            "channelId": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "role": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "offset": {
+                              "anyOf": [
+                                {
+                                  "type": "number",
+                                  "minimum": 1,
+                                  "maximum": 15
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "active",
+                            "channelId",
+                            "role",
+                            "offset"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "dailies": {
+                          "type": "object",
+                          "properties": {
+                            "active": {
+                              "type": "boolean"
+                            },
+                            "channelId": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "role": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "offset": {
+                              "anyOf": [
+                                {
+                                  "type": "number",
+                                  "minimum": 1,
+                                  "maximum": 15
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "active",
+                            "channelId",
+                            "role",
+                            "offset"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "grandma": {
+                          "type": "object",
+                          "properties": {
+                            "active": {
+                              "type": "boolean"
+                            },
+                            "channelId": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "role": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "offset": {
+                              "anyOf": [
+                                {
+                                  "type": "number",
+                                  "minimum": 1,
+                                  "maximum": 15
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "active",
+                            "channelId",
+                            "role",
+                            "offset"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "turtle": {
+                          "type": "object",
+                          "properties": {
+                            "active": {
+                              "type": "boolean"
+                            },
+                            "channelId": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "role": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "offset": {
+                              "anyOf": [
+                                {
+                                  "type": "number",
+                                  "minimum": 1,
+                                  "maximum": 15
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "active",
+                            "channelId",
+                            "role",
+                            "offset"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "geyser": {
+                          "type": "object",
+                          "properties": {
+                            "active": {
+                              "type": "boolean"
+                            },
+                            "channelId": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "role": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "offset": {
+                              "anyOf": [
+                                {
+                                  "type": "number",
+                                  "minimum": 1,
+                                  "maximum": 15
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "active",
+                            "channelId",
+                            "role",
+                            "offset"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "reset": {
+                          "type": "object",
+                          "properties": {
+                            "active": {
+                              "type": "boolean"
+                            },
+                            "channelId": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "role": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "offset": {
+                              "anyOf": [
+                                {
+                                  "type": "number",
+                                  "minimum": 1,
+                                  "maximum": 15
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "active",
+                            "channelId",
+                            "role",
+                            "offset"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "aurora": {
+                          "type": "object",
+                          "properties": {
+                            "active": {
+                              "type": "boolean"
+                            },
+                            "channelId": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "role": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "offset": {
+                              "anyOf": [
+                                {
+                                  "type": "number",
+                                  "minimum": 1,
+                                  "maximum": 15
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "active",
+                            "channelId",
+                            "role",
+                            "offset"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "ts": {
+                          "type": "object",
+                          "properties": {
+                            "active": {
+                              "type": "boolean"
+                            },
+                            "channelId": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "role": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "offset": {
+                              "anyOf": [
+                                {
+                                  "type": "number",
+                                  "minimum": 1,
+                                  "maximum": 15
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "active",
+                            "channelId",
+                            "role",
+                            "offset"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "shards-eruption": {
+                          "type": "object",
+                          "properties": {
+                            "active": {
+                              "type": "boolean"
+                            },
+                            "channelId": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "role": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "offset": {
+                              "anyOf": [
+                                {
+                                  "type": "number",
+                                  "minimum": 1,
+                                  "maximum": 15
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "shard_type": {
+                              "anyOf": [
+                                {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "string",
+                                    "enum": [
+                                      "red",
+                                      "black"
+                                    ]
+                                  }
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "active",
+                            "channelId",
+                            "role",
+                            "offset",
+                            "shard_type"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "fireworks-festival": {
+                          "type": "object",
+                          "properties": {
+                            "active": {
+                              "type": "boolean"
+                            },
+                            "channelId": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "role": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "offset": {
+                              "anyOf": [
+                                {
+                                  "type": "number",
+                                  "minimum": 1,
+                                  "maximum": 15
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "active",
+                            "channelId",
+                            "role",
+                            "offset"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "required": [
+                        "eden",
+                        "dailies",
+                        "grandma",
+                        "turtle",
+                        "geyser",
+                        "reset",
+                        "aurora",
+                        "ts",
+                        "shards-eruption",
+                        "fireworks-festival"
+                      ],
+                      "additionalProperties": false
                     }
                   ]
                 }
@@ -1170,7 +2662,9 @@
             "in": "path",
             "description": "Discord guild ID",
             "schema": {
-              "example": "123456789012345678"
+              "$schema": "https://json-schema.org/draft/2020-12/schema",
+              "type": "string",
+              "pattern": "^\\d{17,19}$"
             }
           }
         ],
@@ -1182,10 +2676,542 @@
               "schema": {
                 "anyOf": [
                   {
-                    "$ref": "#/components/schemas/LiveUpdatesDto"
+                    "$schema": "https://json-schema.org/draft/2020-12/schema",
+                    "type": "object",
+                    "properties": {
+                      "shards": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "times": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "shards",
+                      "times"
+                    ],
+                    "additionalProperties": false
                   },
                   {
-                    "$ref": "#/components/schemas/ReminderFeatureDto"
+                    "$schema": "https://json-schema.org/draft/2020-12/schema",
+                    "type": "object",
+                    "properties": {
+                      "eden": {
+                        "type": "object",
+                        "properties": {
+                          "active": {
+                            "type": "boolean"
+                          },
+                          "channelId": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "role": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "offset": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 1,
+                                "maximum": 15
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          }
+                        },
+                        "required": [
+                          "active",
+                          "channelId",
+                          "role",
+                          "offset"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "dailies": {
+                        "type": "object",
+                        "properties": {
+                          "active": {
+                            "type": "boolean"
+                          },
+                          "channelId": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "role": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "offset": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 1,
+                                "maximum": 15
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          }
+                        },
+                        "required": [
+                          "active",
+                          "channelId",
+                          "role",
+                          "offset"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "grandma": {
+                        "type": "object",
+                        "properties": {
+                          "active": {
+                            "type": "boolean"
+                          },
+                          "channelId": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "role": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "offset": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 1,
+                                "maximum": 15
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          }
+                        },
+                        "required": [
+                          "active",
+                          "channelId",
+                          "role",
+                          "offset"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "turtle": {
+                        "type": "object",
+                        "properties": {
+                          "active": {
+                            "type": "boolean"
+                          },
+                          "channelId": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "role": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "offset": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 1,
+                                "maximum": 15
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          }
+                        },
+                        "required": [
+                          "active",
+                          "channelId",
+                          "role",
+                          "offset"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "geyser": {
+                        "type": "object",
+                        "properties": {
+                          "active": {
+                            "type": "boolean"
+                          },
+                          "channelId": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "role": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "offset": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 1,
+                                "maximum": 15
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          }
+                        },
+                        "required": [
+                          "active",
+                          "channelId",
+                          "role",
+                          "offset"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "reset": {
+                        "type": "object",
+                        "properties": {
+                          "active": {
+                            "type": "boolean"
+                          },
+                          "channelId": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "role": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "offset": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 1,
+                                "maximum": 15
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          }
+                        },
+                        "required": [
+                          "active",
+                          "channelId",
+                          "role",
+                          "offset"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "aurora": {
+                        "type": "object",
+                        "properties": {
+                          "active": {
+                            "type": "boolean"
+                          },
+                          "channelId": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "role": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "offset": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 1,
+                                "maximum": 15
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          }
+                        },
+                        "required": [
+                          "active",
+                          "channelId",
+                          "role",
+                          "offset"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "ts": {
+                        "type": "object",
+                        "properties": {
+                          "active": {
+                            "type": "boolean"
+                          },
+                          "channelId": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "role": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "offset": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 1,
+                                "maximum": 15
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          }
+                        },
+                        "required": [
+                          "active",
+                          "channelId",
+                          "role",
+                          "offset"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "shards-eruption": {
+                        "type": "object",
+                        "properties": {
+                          "active": {
+                            "type": "boolean"
+                          },
+                          "channelId": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "role": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "offset": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 1,
+                                "maximum": 15
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "shard_type": {
+                            "anyOf": [
+                              {
+                                "type": "array",
+                                "items": {
+                                  "type": "string",
+                                  "enum": [
+                                    "red",
+                                    "black"
+                                  ]
+                                }
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          }
+                        },
+                        "required": [
+                          "active",
+                          "channelId",
+                          "role",
+                          "offset",
+                          "shard_type"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "fireworks-festival": {
+                        "type": "object",
+                        "properties": {
+                          "active": {
+                            "type": "boolean"
+                          },
+                          "channelId": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "role": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "offset": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 1,
+                                "maximum": 15
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          }
+                        },
+                        "required": [
+                          "active",
+                          "channelId",
+                          "role",
+                          "offset"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "required": [
+                      "eden",
+                      "dailies",
+                      "grandma",
+                      "turtle",
+                      "geyser",
+                      "reset",
+                      "aurora",
+                      "ts",
+                      "shards-eruption",
+                      "fireworks-festival"
+                    ],
+                    "additionalProperties": false
                   }
                 ]
               }
@@ -1200,10 +3226,542 @@
                 "schema": {
                   "anyOf": [
                     {
-                      "$ref": "#/components/schemas/LiveUpdatesDto"
+                      "$schema": "https://json-schema.org/draft/2020-12/schema",
+                      "type": "object",
+                      "properties": {
+                        "shards": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "times": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        }
+                      },
+                      "required": [
+                        "shards",
+                        "times"
+                      ],
+                      "additionalProperties": false
                     },
                     {
-                      "$ref": "#/components/schemas/ReminderFeatureDto"
+                      "$schema": "https://json-schema.org/draft/2020-12/schema",
+                      "type": "object",
+                      "properties": {
+                        "eden": {
+                          "type": "object",
+                          "properties": {
+                            "active": {
+                              "type": "boolean"
+                            },
+                            "channelId": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "role": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "offset": {
+                              "anyOf": [
+                                {
+                                  "type": "number",
+                                  "minimum": 1,
+                                  "maximum": 15
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "active",
+                            "channelId",
+                            "role",
+                            "offset"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "dailies": {
+                          "type": "object",
+                          "properties": {
+                            "active": {
+                              "type": "boolean"
+                            },
+                            "channelId": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "role": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "offset": {
+                              "anyOf": [
+                                {
+                                  "type": "number",
+                                  "minimum": 1,
+                                  "maximum": 15
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "active",
+                            "channelId",
+                            "role",
+                            "offset"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "grandma": {
+                          "type": "object",
+                          "properties": {
+                            "active": {
+                              "type": "boolean"
+                            },
+                            "channelId": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "role": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "offset": {
+                              "anyOf": [
+                                {
+                                  "type": "number",
+                                  "minimum": 1,
+                                  "maximum": 15
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "active",
+                            "channelId",
+                            "role",
+                            "offset"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "turtle": {
+                          "type": "object",
+                          "properties": {
+                            "active": {
+                              "type": "boolean"
+                            },
+                            "channelId": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "role": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "offset": {
+                              "anyOf": [
+                                {
+                                  "type": "number",
+                                  "minimum": 1,
+                                  "maximum": 15
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "active",
+                            "channelId",
+                            "role",
+                            "offset"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "geyser": {
+                          "type": "object",
+                          "properties": {
+                            "active": {
+                              "type": "boolean"
+                            },
+                            "channelId": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "role": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "offset": {
+                              "anyOf": [
+                                {
+                                  "type": "number",
+                                  "minimum": 1,
+                                  "maximum": 15
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "active",
+                            "channelId",
+                            "role",
+                            "offset"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "reset": {
+                          "type": "object",
+                          "properties": {
+                            "active": {
+                              "type": "boolean"
+                            },
+                            "channelId": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "role": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "offset": {
+                              "anyOf": [
+                                {
+                                  "type": "number",
+                                  "minimum": 1,
+                                  "maximum": 15
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "active",
+                            "channelId",
+                            "role",
+                            "offset"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "aurora": {
+                          "type": "object",
+                          "properties": {
+                            "active": {
+                              "type": "boolean"
+                            },
+                            "channelId": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "role": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "offset": {
+                              "anyOf": [
+                                {
+                                  "type": "number",
+                                  "minimum": 1,
+                                  "maximum": 15
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "active",
+                            "channelId",
+                            "role",
+                            "offset"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "ts": {
+                          "type": "object",
+                          "properties": {
+                            "active": {
+                              "type": "boolean"
+                            },
+                            "channelId": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "role": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "offset": {
+                              "anyOf": [
+                                {
+                                  "type": "number",
+                                  "minimum": 1,
+                                  "maximum": 15
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "active",
+                            "channelId",
+                            "role",
+                            "offset"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "shards-eruption": {
+                          "type": "object",
+                          "properties": {
+                            "active": {
+                              "type": "boolean"
+                            },
+                            "channelId": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "role": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "offset": {
+                              "anyOf": [
+                                {
+                                  "type": "number",
+                                  "minimum": 1,
+                                  "maximum": 15
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "shard_type": {
+                              "anyOf": [
+                                {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "string",
+                                    "enum": [
+                                      "red",
+                                      "black"
+                                    ]
+                                  }
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "active",
+                            "channelId",
+                            "role",
+                            "offset",
+                            "shard_type"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "fireworks-festival": {
+                          "type": "object",
+                          "properties": {
+                            "active": {
+                              "type": "boolean"
+                            },
+                            "channelId": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "role": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "offset": {
+                              "anyOf": [
+                                {
+                                  "type": "number",
+                                  "minimum": 1,
+                                  "maximum": 15
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "active",
+                            "channelId",
+                            "role",
+                            "offset"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "required": [
+                        "eden",
+                        "dailies",
+                        "grandma",
+                        "turtle",
+                        "geyser",
+                        "reset",
+                        "aurora",
+                        "ts",
+                        "shards-eruption",
+                        "fireworks-festival"
+                      ],
+                      "additionalProperties": false
                     }
                   ]
                 }
@@ -1250,7 +3808,9 @@
             "in": "path",
             "description": "Discord guild ID",
             "schema": {
-              "example": "123456789012345678"
+              "$schema": "https://json-schema.org/draft/2020-12/schema",
+              "type": "string",
+              "pattern": "^\\d{17,19}$"
             }
           }
         ],
@@ -1284,7 +3844,9 @@
             "in": "path",
             "description": "Discord guild ID",
             "schema": {
-              "example": "123456789012345678"
+              "$schema": "https://json-schema.org/draft/2020-12/schema",
+              "type": "string",
+              "pattern": "^\\d{17,19}$"
             }
           }
         ],
@@ -1342,7 +3904,9 @@
             "in": "path",
             "description": "Discord guild ID",
             "schema": {
-              "example": "123456789012345678"
+              "$schema": "https://json-schema.org/draft/2020-12/schema",
+              "type": "string",
+              "pattern": "^\\d{17,19}$"
             }
           }
         ],
