@@ -4001,7 +4001,7 @@
   ],
   "servers": [
     {
-      "url": "https://api.skyhelperbot.com",
+      "url": "https://api.skyhelper.xyz",
       "description": "Production API"
     }
   ],
