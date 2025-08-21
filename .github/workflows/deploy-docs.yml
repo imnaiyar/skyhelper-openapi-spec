@@ -16,4 +16,3 @@ jobs:
         with:
           url: ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
           method: POST
-          timeout: 10
