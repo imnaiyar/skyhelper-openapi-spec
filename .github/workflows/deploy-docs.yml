@@ -1,0 +1,19 @@
+name: Deploy to Vercel on openapi.json change
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - openapi.json
+  workflow_dispatch:
+
+jobs:
+  vercel-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Vercel Deploy
+        uses: fjogeleit/http-request-action@v1
+        with:
+          url: ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
+          method: POST
+          timeout: 10
