@@ -165,6 +165,48 @@
         ]
       }
     },
+    "/planner/{query}": {
+      "get": {
+        "operationId": "AppController_getPlannerEntities",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Application"
+        ]
+      }
+    },
+    "/planner/get/{entity}": {
+      "get": {
+        "operationId": "AppController_getPlannerEntity",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Application"
+        ]
+      }
+    },
+    "/planner": {
+      "get": {
+        "operationId": "AppController_getPlannerData",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Application"
+        ]
+      }
+    },
     "/stats": {
       "get": {
         "description": "Retrieves current bot statistics including server count, member count, and performance metrics",
