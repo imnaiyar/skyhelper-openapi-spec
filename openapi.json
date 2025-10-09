@@ -165,48 +165,6 @@
         ]
       }
     },
-    "/planner/{query}": {
-      "get": {
-        "operationId": "AppController_getPlannerEntities",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": ""
-          }
-        },
-        "tags": [
-          "Application"
-        ]
-      }
-    },
-    "/planner/get/{entity}": {
-      "get": {
-        "operationId": "AppController_getPlannerEntity",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": ""
-          }
-        },
-        "tags": [
-          "Application"
-        ]
-      }
-    },
-    "/planner": {
-      "get": {
-        "operationId": "AppController_getPlannerData",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": ""
-          }
-        },
-        "tags": [
-          "Application"
-        ]
-      }
-    },
     "/stats": {
       "get": {
         "description": "Retrieves current bot statistics including server count, member count, and performance metrics",
@@ -4007,7 +3965,7 @@
   },
   "info": {
     "title": "SkyHelper API",
-    "description": "\n      The SkyHelper Bot API provides comprehensive access to Sky: Children of the Light game data and bot management features.\n      \n      ## Features\n      - **Guild Management**: Configure bot settings for Discord servers\n      - **Game Data**: Access shards, events, traveling spirits, and daily quests information\n      - **User Preferences**: Manage user settings and linked roles\n      - **Live Updates**: Configure automated updates for game events\n      - **Reminders**: Set up notifications for game activities\n      \n      ## Authentication\n      Most endpoints require authentication via Bearer token obtained through Discord OAuth2.\n      The token should be included in the Authorization header as: `Bearer <token>`\n      \n      ## Rate Limiting\n      API requests are rate-limited to prevent abuse. Please respect the limits and implement proper retry logic.\n      \n      ## Support\n      For API support, join our Discord server or check the GitHub repository.\n    ",
+    "description": "\n      The SkyHelper Bot API provides comprehensive access to Sky: Children of the Light game data and bot management features.\n      \n      ## Features\n      - **Guild Management**: Configure bot settings for Discord servers\n      - **Game Data**: Access shards, events, traveling spirits, and daily quests information\n      - **User Preferences**: Manage user settings and linked roles\n      - **Live Updates**: Configure automated updates for game events\n      - **Reminders**: Set up notifications for game activities\n      \n      ## Authentication\n      Most endpoints require authentication via Bearer token obtained through Discord OAuth2.\n      The token should be included in the Authorization header as: `Bearer <token>`\n      \n      ## Rate Limiting\n      API requests are rate-limited to 100 requests per minute per IP address to prevent abuse. \n      Requests from trusted dashboard origins (e.g., dash.skyhelper.xyz) are exempt from rate limits.\n      \n      When rate limited, you'll receive a 429 (Too Many Requests) response with a Retry-After header \n      indicating when you can retry. Please implement proper retry logic with exponential backoff.\n      \n      ## Support\n      For API support, join our Discord server or check the GitHub repository.\n    ",
     "version": "7.7.0",
     "contact": {
       "name": "SkyHelper Team",
