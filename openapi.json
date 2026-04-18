@@ -416,16 +416,9 @@
                 }
               }
             }
-          },
-          "401": {
-            "description": "Missing or invalid authentication"
           }
         },
-        "security": [
-          {
-            "bearer": []
-          }
-        ],
+        "security": [],
         "summary": "Get daily quests data",
         "tags": [
           "Event Management"
