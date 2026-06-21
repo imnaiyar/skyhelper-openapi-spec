@@ -42,7 +42,8 @@
                 "hi",
                 "ru",
                 "ja",
-                "es-ES"
+                "es-ES",
+                "pt-BR"
               ]
             }
           },
@@ -128,7 +129,8 @@
                 "hi",
                 "ru",
                 "ja",
-                "es-ES"
+                "es-ES",
+                "pt-BR"
               ]
             }
           }
@@ -644,7 +646,8 @@
                         "hi",
                         "ru",
                         "ja",
-                        "es-ES"
+                        "es-ES",
+                        "pt-BR"
                       ]
                     }
                   },
@@ -696,7 +699,8 @@
                       "hi",
                       "ru",
                       "ja",
-                      "es-ES"
+                      "es-ES",
+                      "pt-BR"
                     ]
                   }
                 },
@@ -721,7 +725,8 @@
                         "hi",
                         "ru",
                         "ja",
-                        "es-ES"
+                        "es-ES",
+                        "pt-BR"
                       ]
                     }
                   },
@@ -993,7 +998,8 @@
                         "hi",
                         "ru",
                         "ja",
-                        "es-ES"
+                        "es-ES",
+                        "pt-BR"
                       ]
                     },
                     "enabledFeatures": {
@@ -1082,7 +1088,8 @@
                       "hi",
                       "ru",
                       "ja",
-                      "es-ES"
+                      "es-ES",
+                      "pt-BR"
                     ]
                   },
                   "enabledFeatures": {
@@ -1142,7 +1149,8 @@
                         "hi",
                         "ru",
                         "ja",
-                        "es-ES"
+                        "es-ES",
+                        "pt-BR"
                       ]
                     },
                     "enabledFeatures": {
